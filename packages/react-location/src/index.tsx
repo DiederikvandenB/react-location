@@ -985,7 +985,7 @@ export class RouteMatch<TGenerics extends PartialGenerics = DefaultGenerics> {
 
         return Promise.all([...elementPromises, dataPromise])
           .then(() => {
-            this.status = 'resolved'
+            this.status = this.error ? 'rejected' : 'resolved'
             this.isLoading = false
             this.startPending = undefined
           })
